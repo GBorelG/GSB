@@ -1,6 +1,8 @@
 <?php
 	include('connect.php');
+	
 		
+	$connect=mysqli_connect("localhost","root","root","gsb");
 	//extraction des informations du formulaire de saisie.
 	Switch($_POST["FRA_MOIS"])
 	{
@@ -25,16 +27,12 @@
 	$dateHF = $_POST['FRA_AUT_DAT1'];
 	$libelle = $_POST['FRA_AUT_LIB1'];
 	$montant = $_POST['FRA_AUT_MONT1'];
-	$id=$_COOKIE["visiteur"];
-	$mois=$_POST["FRA_MOIS"];
+	$id = $_COOKIE['visiteur'];
 	
-	
-	//reprise de l'identifiant de l'utilisateur pour la crétion d'une fiche frais
-	
-	
+
 	//création d'une fiche frais
 	$reqfichefrais="INSERT INTO fichefrais(idVisiteur,mois, dateModif) VALUES ('$id','$mois','date(YYYY/MM/DD)')";
-	$resultatfichefrais=mysql_query($reqfichefrais);
+	$resultatfichefrais=mysqli_query($connect, $reqfichefrais);
 	
 	//rédaction du script insérant les données dans la base de données.
 	if (($repasMidi != NULL) || ($nuitees != NULL) || ($etape != NULL) || ($km != NULL))
@@ -42,35 +40,42 @@
 		if ($repasMidi != NULL)
 		{
 			$req = "INSERT INTO lignefraisforfait VALUES ('$id','$mois','REP','$repasMidi')";
-			$result=mysql_query($req);
+			$result = mysqli_query($connect, $req);
 		}
 		if ($nuitees != NULL)
 		{
 		$req1 = "INSERT INTO lignefraisforfait VALUES ('$id','$mois','NUI','$nuitees')";
-		$result1=mysql_query($req1);
+		$result1=mysqli_query($connect, $req1);
 		}
 		if ($etape != NULL)
 		{
 		$req2 = "INSERT INTO lignefraisforfait VALUES ('$id','$mois','ETP','$etape')";
-		$result2=mysql_query($req2);
+		$result2=mysqli_query($connect, $req2);
 		}
 		if ($km != NULL)
 		{
 		$req3 = "INSERT INTO lignefraisforfait VALUES ('$id','$mois','KM','$km')";
-		$result3=mysql_query($req3);
+		$result3=mysqli_query($connect, $req3);
 		}
 	}
 if ($dateHF != NULL)
 	{
-		$req4 = "INSERT INTO lignefraishorsforfait(idVisiteur,mois,libelle,date,montant) VALUES ('$id','$mois','$libelle','$dateHF','$montant')";
-		$result4=mysql_query($req4);
+
+
+		// Check connection
+		if (!$connect) {
+		    die("Connection failed: " . mysqli_connect_error());
+		}
+
+		$sql =  "INSERT INTO fichefrais(idVisiteur,mois,libelle,dateCrea,montantSaisie) VALUES ('$id','$mois','$libelle','$dateHF','$montant')";
+		if (mysqli_query($connect, $sql)) {
+		    echo "<h1>Demande envoy&eacute;e</h1>";
+			include('formSaisieFrais.php');
+		} else {
+		    echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+		}
 	}
 
-	//déconnexion à la base de données
-	mysql_close();
-	echo "<h1>Demande envoy&eacute;e</h1>";
-	include('formSaisieFrais.php');
-	
 ?>
 
 

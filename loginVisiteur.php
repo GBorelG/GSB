@@ -45,7 +45,7 @@
 			
     
       <p> <font face="Comic Sans MS">
-        <input type="submit" name="validation" value="Demande de connexion"> </font></p>
+        <input type="submit" name="validation" value="Connexion"> </font></p>
 </center><BR><BR><BR>
 	  
 	  

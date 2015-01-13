@@ -1,6 +1,6 @@
-<?php if($_COOKIE["visiteur"]=="")
-	header("location:choixUtil.html");
-	else?>
+<?php
+	include('connect.php');
+?>
 <html>
 <head>
 	
@@ -58,6 +58,12 @@
 		<blockquote>
 		<h2>Saisie</h2></br>
 		<B>Periode d'engagement :</B>
+		<?php
+			if (isset($_COOKIE['id']))
+				echo $_COOKIE['id'];
+			else
+				echo "Identifiant introuvable.";
+		?>
 			<p>Mois : <select name="FRA_MOIS" class="zone">
 												<option>Janvier</option>
 												<option>F&eacute;vrier</option>

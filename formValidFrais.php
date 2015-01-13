@@ -14,7 +14,7 @@
 	<?php
 				include('connect.php');
 				$connect=mysqli_connect("localhost","root","","gsb");
-				$req = "select nom from visiteur";
+				$req = "select nom from users";
 				$resultat = mysqli_query($connect, $req) or die ("requête non executé");
 				$names = $resultat->fetch_array(MYSQLI_ASSOC);
 				if (! $resultat) { echo "Erreur requete"; exit;} 
