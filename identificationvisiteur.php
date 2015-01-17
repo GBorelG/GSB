@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 // Appel du script de connexion au serveur et à la base de données
 	require("connect.php");
 	$connect=mysqli_connect("localhost","root","root","gsb");
@@ -23,8 +24,9 @@ else
 	//récuperation de l'identifiant du visiteur
 	$rechercheid = "SELECT id FROM users WHERE login='$logSaisi'";
 	$resultID = mysqli_query($connect,$rechercheid) or die ("erreur 1");
-	$id = $resultID->fetch_array(MYSQLI_ASSOC);
-	setCookie("id",$id,time()+3600);
+	$id = $resultID->fetch_assoc();
+	$_SESSION['id'] = $id['id'];
+	setCookie("id",$id['id'],time()+3600);
 	header("location:formSaisieFrais.php");		
 }
 ob_end_flush();

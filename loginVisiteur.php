@@ -33,7 +33,7 @@
 		}
 	}
 </script>
-<body bgcolor="#FFFFFF" text="#000000" link="#CC0000">
+<body id="basicBody" text="#000000" link="#CC0000">
 <h1>Connectez vous</h1>
 <center>
 <div id="corps">

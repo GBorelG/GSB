@@ -12,15 +12,17 @@
 				type = "text/css"
 				title = "CSS"
 				href = "csstest.css"/>
+				
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title >GSB</title>
 
 </head>
-<body>
+<body id="basicBody">
 		
 
 <div class="col-md-12" id="gauche">
-	<center><a href="index.php"><img src="logo.jpg" width="100" height="60"/></center></a>
-	<h2>Informations</h2>
-	<center><a  href="choixUtil.html"><img src="images/bouton1_cnx.png" title="Connectez vous"/></a></center>
+	<div align="center" style="margin-bottom:30px;"><a href="index.php"><img id='logo_banner' src="logo.jpg"/></div></a>
+	<div id="intitule" style="margin-bottom:30px;" align="center">Informations</div>
+	<div align="center"><a  href="choixUtil.html" ><img src="images/bouton1_cnx.png" title="Connectez vous"/></a></div>
 </div>

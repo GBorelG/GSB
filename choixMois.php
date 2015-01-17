@@ -2,9 +2,10 @@
 <title>Choix du mois</title>
 <body>	
 	<?php include("hautConnecteVisiteur.php");?>
-	<div id="corps2">
+	<div >
 	<?php 
 		include('mois.php');
+		include('footer.php');
 	?>
 </body>
 </html>

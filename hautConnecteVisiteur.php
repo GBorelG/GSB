@@ -3,13 +3,14 @@
 				type="test/css"
 				title="CSS"
 				href="csstest.css"/>
-	<meta charset="UTF-8"/>
+
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	
-</head>
+<meta charset="UTF-8"/>
 
-
-	<div id="gauche">
-	<center><a href="index.php"><img src="logo.jpg" width="100" height="60"/></center></a>
+<body id="basicBody">
+<div id="gauche">
+	<div align="center"><a href="index.php"><img src="logo.jpg" width="100" height="60"/></a></div>
 	<h2>Informations</h2>
 <ul>
 	<li><a href="Groupe.php">Le groupe GSB</a></li>
@@ -24,6 +25,6 @@
 		</ul>
 	</ul>
 	</br>
-	<center><a  href="index.php"><img src="images/bouton2_cnx.png" title="Connectez vous"/></a></center>
+	<center><a  href="deconnect.php"><img src="images/bouton2_cnx.png" title="deconnexion"/></a> </center>
 	</br>
-	</div>
+</div>

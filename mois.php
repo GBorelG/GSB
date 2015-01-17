@@ -1,7 +1,12 @@
-<form name="formSaisieFrais" method="post" action="formConsultFrais.php">
-		<blockquote>
+<div class="col-md-offset-5" id='titre'>
+	Consultation de vos frais saisie
+</div>
+
+<div style="margin-bottom:4px">
+	<form name="formSaisieFrais" method="post" action="formConsultFrais.php">
+		<div class="col-md-9" id='corps2' style="margin-bottom:20px;">
 		<B>Choix mois de demande :</B>
-			<p>Mois : <select name="moischoix" class="zone">
+			<div>Mois : <select name="moischoix" class="zone">
 												<option>Janvier</option>
 												<option>F&eacute;vrier</option>
 												<option>Mars</option>
@@ -13,8 +18,12 @@
 												<option>Septembre</option>
 												<option>Octobre</option>
 												<option>Novembre</option>
-												<option>D&eacute;cembre</option></select><input class="zone"type="submit" value="Rechercher"/>
+												<option>D&eacute;cembre</option>
+						</select>
+						<input class="zone"type="submit" value="Rechercher"/>
+			</div>
 												
-		</blockquote>
+		</div>
 		
 	</form>
+</div>

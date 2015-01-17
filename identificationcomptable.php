@@ -23,10 +23,8 @@ else
 	//récuperation de l'identifiant du visiteur
 	$rechercheid="SELECT id FROM users WHERE login='$logSaisi'";
 	$resultID=mysqli_query($connect,$rechercheid) or die ("erreur 1");
-	$ID=$resultID->fetch_array(MYSQLI_ASSOC);
-	//$ID=mysql_result($resultID) or die (""erreur 1");
-	
-	setcookie("comptable","$ID",time()+3600);
+	$ID=$resultID->fetch_assoc();
+	setcookie("comptable",$ID['id'],time()+3600);
 	header("location:formValidFrais.php");		
 }
 ob_end_flush();

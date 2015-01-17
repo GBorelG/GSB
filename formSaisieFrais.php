@@ -1,5 +1,6 @@
 <?php
 	include('connect.php');
+
 ?>
 <html>
 <head>
@@ -49,61 +50,91 @@
 			bouton.setAttribute("class","zone");	
 			bouton.setAttribute("id","but"+ pNumero);				
         }
+
+		function effacer(value_defaut, type)
+		{
+			truk=document.getElementById(id);
+			type=truk.tagName;
+			type=type.toLowerCase();
+			   if (type=='input')
+			   {
+			      if (truk.value==value_defaut)
+			         truk.value='';
+			   }
+			   else if (type=='textarea')
+			   {
+			      if (truk.innerHTML==value_defaut)
+			         truk.innerHTML='';
+			   }
+		}
     </script>
 	</head>
-	<body>
-	
-	<div id="corps2">
-	<form name="formSaisieFrais" method="post" action="enregSaisieFrais.php">
-		<blockquote>
-		<h2>Saisie</h2></br>
-		<B>Periode d'engagement :</B>
-		<?php
-			if (isset($_COOKIE['id']))
-				echo $_COOKIE['id'];
-			else
-				echo "Identifiant introuvable.";
-		?>
-			<p>Mois : <select name="FRA_MOIS" class="zone">
-												<option>Janvier</option>
-												<option>F&eacute;vrier</option>
-												<option>Mars</option>
-												<option>Avril</option>
-												<option>Mai</option>
-												<option>Juin</option>
-												<option>Juillet</option>
-												<option>Aout</option>
-												<option>Septembre</option>
-												<option>Octobre</option>
-												<option>Novembre</option>
-												<option>D&eacute;cembre</option></select></p>
-			<P>Ann&eacute;e :<input type="text" size="4" name="FRA_AN" class="zone" value = "<?php echo date("Y");?>"/><hr>
-		<div style="left;"><strong>Frais au forfait</strong></div>
-		</br>
-		<label class="titre">Repas midi :</label><input type="text" size="2" name="FRA_REPAS" class="zone" />
-		<label class="titre">Nuit&eacute;es :</label><input type="text" size="2" name="FRA_NUIT" class="zone" />
-		<label class="titre">Etape :</label><input type="text" size="5" name="FRA_ETAP" class="zone" />
-		<label class="titre">Km :</label><input type="text" size="5" name="FRA_KM" class="zone" />
-		<hr>
-		<p class="titre" /><div style="left;"><strong>Hors Forfait</strong></div></br>
-		<div style="left;">			
-			<div style="float:left;width:90;text-align:center;">Date(aaaa/mm/jj)</div>
-			<div style="float:left;width:220;text-align:center;">Libell&eacute;</div>
-			<div style="float:left;width:30;text-align:center;">Montant(&euro;)</div>
-		</div></br>
-		<div style="clear">
-			<label class="titre" > 1 : </label>
-			<input type="text" size="12" name="FRA_AUT_DAT1" class="zone"/>
-			<input type="text" size="30" name="FRA_AUT_LIB1" class="zone"/>
-			<input class="zone" size="3" name="FRA_AUT_MONT1" type="text" />				
-						
-		</div>	
-		<p class="titre" /><label class="titre">&nbsp;</label><input class="zone"type="reset" /><input class="zone"type="submit" />
-		
-		
-	</blockquote>
-	</form>
-	</div>
-</body>
+	<body id="basicBody">
+		<div class='col-md-6' id="corps_saisie">
+			<form name="formSaisieFrais" method="post" action="enregSaisieFrais.php">
+				<div class="col-md-4" id="titreFrais">Saisie de vos frais de d&eacute;placements</div>
+				<div class="col-md-12" style="margin-bottom:20px;">Code utilisateur : 
+					<?php
+						if (isset($_COOKIE['id']))
+							echo $_COOKIE['id'];
+						else
+							echo "Identifiant introuvable, veuillez vous reconnecter";
+					?>
+				</div>
+				<div class="col-md-12" id="intitule">Periode d'engagement :</div>
+				
+				<div class="col-md-12">
+					<div class="col-md-2">*Mois : </div>
+						<div class="col-md-5">
+							<select name="FRA_MOIS" class="zone">
+								<option>Janvier</option>
+								<option>F&eacute;vrier</option>
+								<option>Mars</option>
+								<option>Avril</option>
+								<option>Mai</option>
+								<option>Juin</option>
+								<option>Juillet</option>
+								<option>Aout</option>
+								<option>Septembre</option>
+								<option>Octobre</option>
+								<option>Novembre</option>
+								<option>D&eacute;cembre</option>
+							</select>
+					</div>
+				</div>
+				<div class="col-md-12" style="margin-top:5px;">
+					<div class="col-md-2">*Ann&eacute;e : </div>
+					<div class="col-md-5"><input name="FRA_AN" class="zone" size=4 value = "<?php echo date("Y");?>"/></div>
+				</div>
+				<div class="col-md-12" id="intitule">Frais au forfait</div>
 
+				<div class="col-md-12">
+					<div class="col-md-3">Repas midi : <input value=0 type="text" size="2" name="FRA_REPAS" class="zone" /></div>
+					<div class="col-md-3">Nuit&eacute;es : <input value=0 type="text" size="2" name="FRA_NUIT" class="zone" /></div>
+					<div class="col-md-3">Etape : <input value=0 type="text" size="5" name="FRA_ETAP" class="zone" /></div>
+					<div class="col-md-3">Km : <input value=0 type="text" size="5" name="FRA_KM" class="zone" /></div>
+				</div>
+
+				<div class="col-md-12 titre" id='intitule'>Hors Forfait</div>
+				<div class='col-md-12'>
+					<div class='col-md-3'>Libell&eacute;</div>
+					<div class="col-md-3"><input style="background-color: transparent; text-shadow: 0 1px 0 #fff;" placeholder="Saisir le motif du frais" type="text" size="60" name="FRA_AUT_LIB1"/></div>
+
+				</div>
+
+				<div class='col-md-12' style="margin-top:5px;">
+					<div class='col-md-3'>Montant(&euro;)</div>
+					<div class="col-md-3"><input value ="0" class="zone" size="3" name="FRA_AUT_MONT1" type="text" /></div>
+				</div>
+
+				<div class="col-md-12" style="margin-bottom:10px; margin-top:30px;">
+					<input style ="margin-left:40px;" class="zone"type="reset" />
+					<input style = "margin-left:20px;" class="zone"type="submit" />
+				</div>
+			</form>
+		</div>
+		<?php
+		include('footer.php');
+		?>
+	</body>
 </html>
