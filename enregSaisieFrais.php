@@ -7,7 +7,7 @@
 	Switch($_POST["FRA_MOIS"])
 	{
 		case "Janvier":$mois=1;break;
-		case "Février":$mois=2;break;
+		case "F&eacute;vrier":$mois=2;break;
 		case "Mars":$mois=3;break;
 		case "Avril":$mois=4;break;
 		case "Mai":$mois=5;break;

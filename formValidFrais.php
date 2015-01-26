@@ -13,11 +13,11 @@
 	<form name="recherche" action="listeFrais.php" method="post">
 	<?php
 				include('connect.php');
-				$connect=mysqli_connect("localhost","root","","gsb");
+				$connect=mysqli_connect("localhost","root","root","gsb");
 				$req = "select nom from users";
 				$resultat = mysqli_query($connect, $req) or die ("requête non executé");
-				$names = $resultat->fetch_array(MYSQLI_ASSOC);
-				if (! $resultat) { echo "Erreur requete"; exit;} 
+				$names = $resultat->fetch_assoc();
+				if (!$resultat) { echo "Pas de résultat dans la base de données!!"; exit;} 
 	?>
 		<label class="titre">Choisir le visiteur :</label>
 			<select name="lstVisiteur" class="zone">
