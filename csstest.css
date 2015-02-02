@@ -36,6 +36,11 @@ h2{
 	float: left;
 }
 
+
+a:link{
+	color:"#CC0000"	;
+}
+
 #corps{
 	width:500px;
 	margin:auto;
@@ -43,6 +48,8 @@ h2{
 	background-color:white;
 	border-radius:5px;
 	border-width:5px;
+	text-align: center;
+	
 }
 #corps_saisie{
 	padding:1px;
@@ -55,13 +62,11 @@ h2{
 	font-size: 20px;
 	margin-top:20px;
     font-weight: bold;
-
+    text-align: center;
 }
 #titre{
 	font-family:Arial;
 	font-size: 30px;
-	margin-left:5px;
-	margin-left: 250px;
 	text-align: center;
 }
 #titreFrais{

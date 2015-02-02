@@ -3,54 +3,25 @@
 	else?>
 
 <html>
-<head>
+<title>Comptable</title>
+<body id="basicBody">
 	<title>Gestion des frais de visite</title>
-	<?php include("hautConnecteComptable.html");?>
-	
-	<div id="corps2">
-	<blockquote>
-	<h2> Choisissez un visiteur et un mois </h2>
-	<form name="recherche" action="listeFrais.php" method="post">
 	<?php
-				include('connect.php');
-				$connect=mysqli_connect("localhost","root","root","gsb");
-				$req = "select nom from users";
-				$resultat = mysqli_query($connect, $req) or die ("requête non executé");
-				$names = $resultat->fetch_assoc();
-				if (!$resultat) { echo "Pas de résultat dans la base de données!!"; exit;} 
+		include("hautConnecteComptable.php");
 	?>
-		<label class="titre">Choisir le visiteur :</label>
-			<select name="lstVisiteur" class="zone">
+	
+	<div class="col-md-offset-5" id="corps2">
+		<div class="col-md-12" id="corps2">
+			<div class="col-md-12" id="titre">Choisissez un visiteur et un mois </div>
 				<?php
-				foreach ($names as $name)
-				{
-					?>
-						<option><?php echo ''.$name.'';?> </option>
-					<?php
-				}
-				mysql_close($connexion);
-				?>			
-			
-			</select>
-			<label class="titre">Mois :</label>
-			<select name="dateValid" class="zone">
-				<option>Janvier</option>
-				<option>F&eacute;vrier</option>
-				<option>Mars</option>
-				<option>Avril</option>
-				<option>Mai</option>
-				<option>Juin</option>
-				<option>Juillet</option>
-				<option>Aout</option>
-				<option>Septembre</option>
-				<option>Octobre</option>
-				<option>Novembre</option>
-				<option>D&eacute;cembre</option>
-			</select>
-			<input type="submit" value="Afficher" name="bouton"/>
-		</form>
-		
-	</blockquote>
+					include('listCptEnregFrais.php');
+				?>
+		</div>
+		<div class="col-md-12">
+			<?php
+				include('footer.php');
+			?>
+		</div>
 	</div>
 </body>
 </html>

@@ -6,6 +6,8 @@
 				type="test/css"
 				title="CSS"
 				href="csstestComptable.css"/>
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	
 	<script type="text/javascript">
@@ -22,31 +24,27 @@
 </script>
 </head>
 
-<body bgcolor="#FFFFFF" text="#000000" link="#CC0000">
-<h1>Connectez vous</h1>
-<center>
-<div id="corps">
-	<h2>Session Comptable</h2>
-  <form method="post" action="identificationcomptable.php" name="identification" onSubmit="return verifChamps()">
-    
-			<center>	Votre login : <input type="text" name="log" id="log" size="25" maxlength="25"></br>
-						Votre mot de passe :<input type="password" name="mdp" id="mdp" size="8" maxlength="8">
-			
-    
-      <p> <font face="Comic Sans MS">
-        <input type="submit" name="validation" value="Demande de connexion"> </font></p>
-</center><BR><BR><BR>
-	  
-	  
-	  <center><p><font  color="#33CC99"><font color="#000066" size="4">Si 
-        vous &ecirc;tes nouvel utilisateur vous devez
-        remplir le </br><a href="formulaireInscriptionComptable.html">formulaire d'inscription</a>.</font> </center>
-      </p>
-   
-  </form>
+<body id="corps_comptable">
+<div class="col-md-12" id="titre">Connectez vous</div>
+	<div class="col-md-4" id="corps">
+		<div class="col-md-12" id="intitule">
+			Session Comptable
+		</div>
+	  	<form method="post" action="identificationcomptable.php" name="identification" onSubmit="return verifChamps()">
+	    
+			<div class="col-md-6" style="margin-bottom:10px;">Votre login : <input type="text" name="log" id="log" size="25" maxlength="25"></div>
+			<div class="col-md-6">Votre mot de passe :<input type="password" name="mdp" id="mdp" size="25" maxlength="25"></div>
 
-  </div>
-  
-  </center>
+			<div class="col-md-12">
+	        	<input face="Comic Sans MS" type="submit" name="validation" value="Demande de connexion">
+	        </div>
+
+			<div class="col-md-12" size="4">Si 
+		        vous &ecirc;tes nouvel utilisateur vous devez
+		        remplir le <a href="formulaireInscriptionComptable.html">formulaire d'inscription</a>.
+	        </div>   
+		</form>
+
+	</div>
 </body>
 </html>

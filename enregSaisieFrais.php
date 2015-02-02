@@ -2,7 +2,7 @@
 	include('connect.php');
 	
 		
-	$connect=mysqli_connect("localhost","root","root","gsb");
+	//$connect=mysqli_connect("localhost","root","root","gsb");
 	//extraction des informations du formulaire de saisie.
 	Switch($_POST["FRA_MOIS"])
 	{
